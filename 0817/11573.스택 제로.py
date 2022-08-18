@@ -9,3 +9,4 @@ for t in range(T):
         else:
             n_nums.append(nums[i])
     print(f'#{t+1}', sum(n_nums))
+
