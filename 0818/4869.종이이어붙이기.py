@@ -1,5 +1,4 @@
 T = int(input())
-
 def paper(N):
     if N % 10 == 0:
         if N == 10:
