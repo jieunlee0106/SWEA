@@ -1,4 +1,4 @@
-'''
+
 T = int(input())
 for t in range(T):
     n, m = map(int, input().split())
@@ -14,5 +14,4 @@ for t in range(T):
                 max_cnt = cnt
 
     print(f'#{t+1}', max_cnt)
-'''
 

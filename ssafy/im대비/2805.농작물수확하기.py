@@ -1,11 +1,17 @@
-for t in range(1, int(input()+1)):
+for t in range(1, int(input())+1):
     n = int(input())
-    arr = [list(map(int, input().split())) for _ in range(n)]
+    arr = [list(map(int, input())) for _ in range(n)]
     m = n//2
     arr_r, arr_c = m, m
-
-    j = 0
-    sum_list = []
-    for r in range(n):
-        for c in range(n):
-            sum_list += arr[r][c]
+    i = 0
+    sum_n = 0
+    for r in range(m, -1, -1):
+        for c in range(i, n-i):
+            sum_n += arr[r][c]
+        i += 1
+    i = 1
+    for r in range(m+1, n):
+        for c in range(i, n-i):
+            sum_n += arr[r][c]
+        i += 1
+    print(f'#{t}', sum_n)
