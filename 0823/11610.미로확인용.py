@@ -1,5 +1,6 @@
-for t in range(1, int(input())+1):
-    n = int(input())
+for _ in range(10):
+    t = int(input())
+    n = 16
     arr = [list(map(int, input())) for _ in range(n)]
 
     for r in range(n):
