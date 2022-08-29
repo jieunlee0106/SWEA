@@ -1,20 +1,36 @@
-for t in range(1, int(input())+1):
+for t in range(1, int(input()) + 1):
     n, m, k = map(int, input().split())
     lst = list(map(int, input().split()))
-    man = [0]*11115
+    bb = [0] * 11115
+    man = [0] * 11115
     result = 0
     bbb = 'Possible'
-    bcnt = 0
 
+    for i in range(m, 11115, m):
+        bb[i] = k
     for k in range(n):
         man[lst[k]] -= 1
 
-    for j in range(1, 11115):
-        if bcnt < 0:
+    for j in range(11115):
+        result += bb[j]
+        result += man[j]
+        if result < 0:
             bbb = 'Impossible'
             break
-        if j % m == 0:
-            bcnt += bcnt + k + man[j]
-        elif j % m != 1:
-            bcnt += bcnt + man[j]
+
     print(f'#{t}', bbb)
+
+    '''
+    def solve():
+    n, m, k = map(int, input().split())
+    li = list(map(int, input().split()))
+    li.sort()
+    for i in range(n):
+        if (li[i] // m) * k < i+1:
+            return 'Impossible'
+    return 'Possible'
+ 
+ 
+for T in range(int(input())):
+    print(f'#{T+1} {solve()}')
+    '''
