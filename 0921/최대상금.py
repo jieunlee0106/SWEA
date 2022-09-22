@@ -3,6 +3,7 @@ def get_num():
     for val in nums:
         ret = ret * 10 + val
     return ret
+
 def find_max(k):
     global ans
     val = get_num()
