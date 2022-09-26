@@ -1,29 +1,23 @@
-for tc in range(1):
-    n, s = map(int, input().split())
-    lstt = list(map(int, input().split()))
-    nums = [[0]]*101
-    visited = [False]*101
-    lst = []
+for tc in range(1, 2):
+    n, start = map(int, input().split())
+    lst = list(map(int, input().split()))
+    tree = [[] for _ in range(102)]
+    level = [[] for _ in range(102)]
+
     for i in range(0, n, 2):
-        nums[lstt[i]].append(lstt[i+1])
+        tree[lst[i]] += [lst[i+1]]
+    visited = [start]
+    level[0] = start
+    le = 1
+    level[le] += tree[start]
+    stack = level[le]
 
-    inn = [[0]*101]
-    inn[0] = nums[s]
-    idx = 1
-
-    lst.append(s)
-
-    while lst:
-        s = lst.pop()
-        for j in range(len(nums[s])):
-            v = nums[s][j]
-            if visited[v] == False:
-                for p in range(len(nums[s])):
-                    inn[idx].append(nums[s][p])
-                lst.append(nums[s][j])
-                visited[s] = True
-            else: continue
-        idx += 1
-
-    print(inn)
-
+    while level[le]:
+        while stack:
+            start = stack.pop()
+            if start not in visited:
+                visited.append(start)
+                level[le] += tree[start]
+        stack = level[le]
+        le += 1
+    print(max(level[le-1]))
