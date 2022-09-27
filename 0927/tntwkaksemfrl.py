@@ -28,31 +28,29 @@ def cal(k, h):
 
 
 for tc in range(1, int(input())+1):
-    if tc <= 9:
-        n = int(input())
-        maxx = -10000000
-        mini = 100000000
-        oper_temp = list(map(int, input().split()))
-        nums = list(map(int, input().split()))
-        lst = []
-        oper = [0]*(n-1)
-        arr = [0]*(2*n-1)
-        idx = 0
-        opp = ['+', '-', '*', '/']
-        for i in range(4):
-            for j in range(idx, idx + oper_temp[i]):
-                oper[j] = opp[i]
-            idx = idx + oper_temp[i]
 
-        used = [0]*(n-1)
-        d = {}
-        idx = 0
-        for o in range(0, len(arr), 2):
-            arr[o] = nums[idx]
-            idx += 1
-        ret = arr[0]
-        cal(0, 0)
+    n = int(input())
+    maxx = -10000000
+    mini = 100000000
+    oper_temp = list(map(int, input().split()))
+    nums = list(map(int, input().split()))
+    lst = []
+    oper = [0]*(n-1)
+    arr = [0]*(2*n-1)
+    idx = 0
+    opp = ['+', '-', '*', '/']
+    for i in range(4):
+        for j in range(idx, idx + oper_temp[i]):
+            oper[j] = opp[i]
+        idx = idx + oper_temp[i]
 
-        print(f'#{tc} {maxx - mini}')
-    else:
-        print(f'#{10} {701696}')
+    used = [0]*(n-1)
+    d = {}
+    idx = 0
+    for o in range(0, len(arr), 2):
+        arr[o] = nums[idx]
+        idx += 1
+    ret = arr[0]
+    cal(0, 0)
+
+    print(f'#{tc} {maxx - mini}')
