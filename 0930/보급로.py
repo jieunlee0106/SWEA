@@ -1,9 +1,7 @@
-# dfs 시간 초과 / 4 번 tc 까지 겨우 돌아감
 from collections import deque
 def bfs(r, c):
-
     q = deque()
-    q. append((r, c))
+    q. append((0, 0))
     s = 0
     while q:
         r, c = q.popleft()
@@ -18,7 +16,7 @@ def bfs(r, c):
 for tc in range(1, int(input())+1):
     n = int(input())
     arr = [list(map(int, input())) for _ in range(n)]
-    time = [[10000]*n for _ in range(n)]
+    time = [[1000]*n for _ in range(n)]
     dr = [-1, 1, 0, 0]
     dc = [0, 0, 1, -1]
     time[0][0] = 0
