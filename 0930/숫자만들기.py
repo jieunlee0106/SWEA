@@ -2,8 +2,8 @@ from itertools import permutations
 import math
 def cal():
     global per
-    mi = 10000000
-    mx = -10000000
+    mi = 10000
+    mx = -10000
     for j in range(len(per)):
         s = nums[0]
         for i in range(N-1):
@@ -40,4 +40,5 @@ for tc in range(1, int(input())+1):
         per.add(i)
     per = list(per)
     cal()
+
 
