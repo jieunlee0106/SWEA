@@ -1,9 +1,10 @@
+# 순열 시긴 초ㅗ가 / n 이 12면 계산할 것이 억이 넘어가서 시간이 길어짐
 from itertools import permutations
 import math
 def cal():
     global per
-    mi = 10000
-    mx = -10000
+    mi = 10000000
+    mx = -10000000
     for j in range(len(per)):
         s = nums[0]
         for i in range(N-1):

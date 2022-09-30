@@ -1,15 +1,9 @@
-from itertools import combinations
-def cook():
-    global ret, visited
-
-    for A in dish:
-        if A not in visited:
-            visited += [[A]]
-            B = []
-            for b in lst:
-                if b not in A:
-                    B += [b]
-            visited += [[B]]
+def cook(k):
+    global ret
+    b = []
+    if k == n:
+        if len(A) == n//2:
+            B = list(set(lst) - set(A))
             A_dish = 0
             B_dish = 0
             for ar in range(len(A)):
@@ -23,15 +17,17 @@ def cook():
             abab = abs(A_dish - B_dish)
             ret = min(ret, abab)
 
+    else:
+        A.append(lst[k])
+        cook(k + 1)
+        A.pop()
+        cook(k + 1)
+
 for tc in range(1, int(input())+1):
     n = int(input())
     lst= [i for i in range(n)]
     arr = [list(map(int, input().split())) for _ in range(n)]
-    dish = []
-    visited = []
-    for i in combinations(lst, n//2):
-        dish += [i]
-
+    A = [lst[0]]
     ret = 100000
-    cook()
+    cook(1)
     print(f'#{tc} {ret}')
