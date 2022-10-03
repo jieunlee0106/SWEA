@@ -6,7 +6,6 @@ def back(subset, i, arr):
         ret.append(copy.copy(subset))
         return
     else:
-
         subset.append(arr[i])
         i += 1
         back(subset, i, arr)

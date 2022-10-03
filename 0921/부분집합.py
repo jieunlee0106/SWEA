@@ -19,8 +19,8 @@ bits = [0]*n
 #             bits[k] = i
 #             b(k+1)
 # b(0)
-
-ans = []
+#
+# ans = []
 
 def b(k):
     if k == n:

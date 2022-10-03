@@ -6,3 +6,4 @@ for num in arr:
   for y in range(size):
     subsets.append(subsets[y]+[num])
 print(subsets)
+
