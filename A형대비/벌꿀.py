@@ -1,4 +1,3 @@
-# 벌꿀 채취
 from itertools import combinations
 
 T = int(input())
@@ -32,4 +31,4 @@ for tc in range(1, 1 + T):
     for prof in poss_profits:
         max_profits.append(max(prof))
 
-    print(f'#{tc} {sorted(max_profits, reverse=True)[0] + sorted(max_profits, reverse=True)[1]}')
+    print(f'#{tc} {sorted(max_profits)[-1] + sorted(max_profits)[-2]}')
