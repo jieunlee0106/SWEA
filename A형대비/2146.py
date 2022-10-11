@@ -38,6 +38,7 @@ def bridge(lst):
         cnt = 0
         for i in range(N):
             if arr[i][j] != 0:
+
                 if u == 0 and v == 0:
                     u = arr[i][j]
                 elif u != 0 and cnt != 0:

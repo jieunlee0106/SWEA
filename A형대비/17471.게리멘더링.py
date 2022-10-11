@@ -1,20 +1,19 @@
 import copy
-from collections import deque
 def grouping(k):
     global A_visited
 
     if A != [] and A not in A_visited:
+        A_visited += [A.copy()]
         B = list(set(lst) - set(A))
-        A_visited += [B.copy()]
-        if B and A:
-            print('A =>', A, 'B=>', B)
+        if B:
             possible(A, B)
-    if k >= N:
+    if k >= len(lst):
         return
     A.append(lst[k])
     grouping(k + 1)
     A.pop()
     grouping(k + 1)
+
 
 def possible(A, B):
     global ret
@@ -73,24 +72,32 @@ for j in list(map(int, input().split())):
 adjL = [[] for _ in range(N+1)]
 
 i = 1
-for _ in range(N):
+del_lst = []
+for nn in range(1, N+1):
     temp_lst = list(map(int, input().split()))
     n = temp_lst[0]
-    for j in range(1, n+1):
-        adjL[i].append(temp_lst[j])
+    if n == 0:
+        del_lst += [nn]
+    else:
+        for j in range(1, n+1):
+            adjL[i].append(temp_lst[j])
     i += 1
 
-A_visited = []
-A = []
-B = []
-ret = []
-ret_a = []
-ret_b = []
-grouping(0)
-mini = 1000000
-if len(ret):
-    vote(ret)
-    print('ret_a', ret_a, 'ret_b', ret_b)
-    print(mini)
-else:
+lst = [x for x in lst if x not in del_lst]
+
+if len(lst) == 0:
     print(-1)
+else:
+    A_visited = []
+    A = [lst[0]]
+    B = []
+    ret = []
+    ret_a = []
+    ret_b = []
+    grouping(1)
+    mini = 1000000
+    if len(ret):
+        vote(ret)
+        print(mini)
+    else:
+        print(-1)

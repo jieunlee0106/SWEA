@@ -17,26 +17,29 @@ def check(cur_lst1, r, C,  k):
             k_lst.pop()
             visited.pop()
 
-def back(C):
+def Honey(C):
     global ret_lst, visited
     for r in range(N):
         ret = 0
-        cur_sum = []
+        honey = []
         for c in C:
-            cur_sum.append(arr[r][c])
-        if sum(cur_sum) <= S:
-            for s in range(M):
-                ret += cur_sum[s]**2
-            ret_lst += [[ret, r, C]]
+            if arr[r][c] != 0:
+                honey.append(arr[r][c])
+        if sum(honey) <= S:
+            for h in honey:
+                ret += h**2
+            ret_lst += [ret]
+
+
         else:
             bits = []
-            check(cur_sum, r, C, 0)
+            check(honey, r, C, 0)
 
 for tc in range(1, int(input())+1):
     N, M, S = map(int, input().split())
     arr = [list(map(int, input().split())) for _ in range(N)]
     lst = []
-    for i in range(0, N - M + 1, M):
+    for i in range(0, N - M + 1):
         temp = []
         for j in range(i, i + M):
             temp.append(j)
@@ -47,7 +50,7 @@ for tc in range(1, int(input())+1):
     ret_lst = []
     visited = [-1]
     for c_lst in lst:
-        back(c_lst)
+        Honey(c_lst)
 
     maxx = 0
     rr = 0
@@ -69,4 +72,4 @@ for tc in range(1, int(input())+1):
             cc2 = ccc2
 
 
-    print(maxx + maxx2)
+    print(f'#{tc}', maxx + maxx2)

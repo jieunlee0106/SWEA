@@ -1,8 +1,5 @@
 from itertools import combinations
 
-T = int(input())
-
-
 def find_max_honey(honey):
     find_max = 0
     for i in range(1, len(honey) + 1):
@@ -17,7 +14,7 @@ def find_max_honey(honey):
     return find_max
 
 
-for tc in range(1, 1 + T):
+for tc in range(1, 1 + int(input())):
     N, M, C = map(int, input().split())
     arr = [list(map(int, input().split())) for _ in range(N)]
 
