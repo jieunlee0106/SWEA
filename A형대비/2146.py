@@ -103,9 +103,14 @@ else:
         if lst1 not in bridge:
             bridge.append(lst1)
     adjM = [[0] * (island_num + 1) for _ in range(island_num + 1)]
+    print(bridge)
+    print(adjM)
     for u, v, w in bridge:
+        if adjM[u][v] and adjM[u][v] < w:
+            continue
         adjM[u][v] = w
         adjM[v][u] = w
+    print(adjM)
     # print(bridge)
     # print(adjM)
     print(prim(1, island_num))
