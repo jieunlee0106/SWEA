@@ -21,6 +21,6 @@
 -Divide & Conquer  
 -Bracktracking 
 -Graph  
-  - DFS, BFS, MST
+  DFS, BFS, MST
 
 
