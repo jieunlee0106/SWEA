@@ -19,3 +19,4 @@ for r in range(N):
 shop_combi = list(combinations(all_shop, M))
 
 for s in range(len(shop_combi)):
+    pass
