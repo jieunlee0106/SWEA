@@ -40,4 +40,4 @@ for tc in range(1, int(input())+1):
         for j in range(M):
             if 0 < visited[i][j] <= L:
                 cnt += 1
-    print(f'#{tc} {cnt}')
+    print(f'#{tc} {cnt} {cnt}')
