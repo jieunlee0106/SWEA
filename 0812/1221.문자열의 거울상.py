@@ -9,7 +9,7 @@ for t in range(T):
 
     for i in range(len(re_s)):
         if re_s[i] == 'd':
-            re_s[i] = 'b'
+            re_s[i] = 'bb'
 
         elif re_s[i] == 'b':
             re_s[i] = 'd'
